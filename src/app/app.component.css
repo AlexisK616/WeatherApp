@@ -1,0 +1,37 @@
+
+@media (max-width: 991px) {
+  #imgn {
+    display: none;
+  }
+
+  img{
+    padding: 10px;
+  }
+
+  #humedad{
+     width: 30% !important;
+  }
+  #viento{
+    width: 30% !important;
+    margin-top: 10px !important;
+    margin-left: 1.5% !important;
+    
+  }
+  #container-temp{
+    margin-top: 20%;
+    border: none !important;
+  }
+  #container-temp > img{
+         
+         margin-left: 25% !important;
+  }
+  
+}
+
+@media (max-width: 500px){
+  #container-temp > img{
+         
+    margin-left: 25% !important;
+}
+
+}

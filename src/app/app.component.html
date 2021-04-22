@@ -1,0 +1,71 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">}
+    <div class="container">
+      <a id="logo" href="" class="navbar-brand"><img src="../assets/img/pronostico-del-tiempo.png" style="width: 7vh; margin-right: 7px;">WeatherApp</a>
+    </div>
+</nav>
+
+<div class="container mt-5 p-1">
+    <div class="row form-control d-flex pb-5">
+        <div class="col-sm-12 col-md-12 col-lg-6 mt-5 pe-5">         
+                <p class="display-4 ms-5 mb-5">Busca el clima de tu ciudad</p>
+                <form class="ms-5" (submit)="submitClima(countryCode,stateCode)">
+                    <div class="mb-3 ms-auto">
+                      <label for="exampleInputEmail1" class="form-label">Nombre de la ciudad</label>
+                      <input #countryCode type="text" class="form-control"  style="width: 100%;"  aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3 ms-auto">
+                      <label for="exampleInputPassword1" class="form-label">Codigo del pais</label>
+                      <input #stateCode type="text" placeholder="ej:'AR'" class="form-control"style="width: 100%;"  >
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3" style="width: 35%;">Buscar</button>
+                  </form>
+        </div>
+        <div class="col-sm-0 col-md-12 col-lg-6" style="overflow: hidden;">
+            <img class="p-3" src="../assets/img/Weather.gif" id="imgn">
+        </div>
+        </div>
+
+
+            <div *ngIf="weather" class="container p-4 mt-5 card card-body">
+            <div class="row">
+               <div class="col-md-12 col-lg-7  p-2" style="height: 400px;" style="width: 65%;">
+                <p class="display-1">{{weather.name}}</p>
+                <p class="display-4">{{weather.sys.country}}</p>
+                <div class="row mt-5" style="margin-left: -38px;">
+                    <div class="col-md-12 col-lg-6 d-flex align-items-center">
+                        <img src="../assets/img/caliente (1).png" style="width: 40%;">
+                        <p class="h5 ms-1">Temperatura maxima: {{weather.main.temp_max}}°C</p>
+                    </div>
+                    <div class="col-md-12 col-lg-6 d-flex align-items-center">
+                        <img src="../assets/img/temperatura (1).png" style="width: 40%;">
+                        <p class="h5 ms-1">Temperatura minima: {{weather.main.temp_min}}°C</p>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12 col-lg-6 d-flex align-items-center">
+                        <img id="humedad" src="../assets/img/humedad (1).png" style="width: 25%;">
+                        <p class="h5" style="margin-left: 9.5%;">Humedad: {{weather.main.humidity}}%</p>
+                    </div>
+                    <div class="col-md-12 col-lg-6 d-flex align-items-center" >
+                        <img id="viento" src="../assets/img/manga-de-viento.png" style="width: 25%; margin-left: 9.2%;">
+                        <p class="h5" style="margin-left: 25px;">Vientos a: {{weather.wind.speed}}M/s</p>
+                    </div>
+                </div>
+               </div>
+               <div id="container-temp" class="col-md-12 col-lg-4 border-start border-5 bg-lg-light" style="height:600px;">
+                <img src="../assets/img/{{weather.weather[0].icon}}.png" style="width: 50%; margin-left: 25%;">
+                <p class="h3 text-center mt-5">{{weather.weather[0].description}}</p>
+                <p class="display-4 text-center mt-5 pt-4">Temperatura: {{weather.main.temp}}°C</p>
+               </div>
+            </div>
+        </div>
+   
+
+    </div>
+
+
+
+
+
